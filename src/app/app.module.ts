@@ -17,12 +17,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListProductComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ConfirmacionComponent
   ],
   imports: [
     BrowserModule,

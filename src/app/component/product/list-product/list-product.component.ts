@@ -4,6 +4,7 @@ import { Product } from 'src/app/model/product';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductFormComponent } from 'src/app/product-form/product-form.component';
+import { ConfirmacionComponent } from 'src/app/confirmacion/confirmacion.component';
 
 @Component({
   selector: 'app-list-product',
@@ -67,6 +68,12 @@ export class ListProductComponent implements OnInit {
       if(result){
         this.productListMethod();
       }
+    });
+  }
+  
+  deleteProduct(element: Product) {
+    const dialogRef = this.dialog.open(ConfirmacionComponent, {
+      data: { name: element.name }
     });
   }
 
