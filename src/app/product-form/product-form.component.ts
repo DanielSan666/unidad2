@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Product } from '../model/product';
+import { ListProductComponent } from '../component/product/list-product/list-product.component';
 
 @Component({
   selector: 'app-product-form',
@@ -7,7 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductFormComponent implements OnInit {
 
-  constructor() { }
+  FormGroup!: FormGroup
+
+  constructor(public dialogRef: MatDialogRef<ListProductComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Product,
+  ) { }
 
   ngOnInit(): void {
   }
