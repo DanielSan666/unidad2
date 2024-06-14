@@ -17,8 +17,12 @@
       return this.http.get<Product[]>(this.url)
     }
 
-    addProduct(product:Product):Observable<Product>{
-      return this.http.post<Product>(this.url, {product})
+    addProduct(product:any):Observable<Product>{
+      return this.http.post<Product>(this.url,product)
+    }
+
+    editProduct(product:any):Observable<Product>{
+      return this.http.patch<Product>(this.url,product)
     }
 
     delete(id:string): Observable<Product>{
