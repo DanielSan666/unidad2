@@ -1,0 +1,82 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened>
+      <mat-nav-list>
+        <a mat-list-item href="#" (click)="close()">Dashboard</a>
+        <a mat-list-item routerLink="/list-user" (click)="close()">User</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span> My Application</span>
+      </mat-toolbar>
+
+
+      <div class="example-container">
+        <mat-toolbar class="mat-toolbar">User List</mat-toolbar>
+        <mat-form-field>
+            <mat-label>Buscar</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="User" #input>
+            </mat-form-field>
+        <button mat-fab (click)="openDialog()"><mat-icon>add</mat-icon></button>
+        <div class="content">
+          <div class="mat-elevation-z8">
+            <mat-table [dataSource]="userList">
+            
+              <!-- Fecha de Creacion Column -->
+              <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef> Fecha de Creacion </th>
+                <td mat-cell *matCellDef="let element"> {{ element.creationDate | date:'short'}} </td>
+              </ng-container>
+              
+              <!-- Nombre Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+              </ng-container>
+              
+              <!-- Apellido Column -->
+              <ng-container matColumnDef="lastname">
+                <th mat-header-cell *matHeaderCellDef> Apellido </th>
+                <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+              </ng-container>
+              
+              <!-- Email Column -->
+              <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+              </ng-container>
+              
+              <!-- Phone Column -->
+              <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+                <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+              </ng-container>
+              
+              <!-- Status Column -->
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Estado </th>
+                <td mat-cell *matCellDef="let element"> {{element.status ? 'Activo' : 'Inactivo'}} </td>
+              </ng-container>
+
+              <!-- Opciones Column -->
+              <ng-container matColumnDef="opciones">
+                <th mat-header-cell *matHeaderCellDef> Opciones </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-button (click)="editDialog(element)"><mat-icon>edit</mat-icon></button>
+                  <button mat-button (click)="deleteDialog(element._id)"><mat-icon>delete</mat-icon></button>
+                </td>
+              </ng-container>
+              
+              <tr mat-header-row *matHeaderRowDef="columnsHeader"></tr>
+              <tr mat-row *matRowDef="let row; columns: columnsHeader;"></tr>
+            </mat-table>
+          </div>
+        </div>
+      </div>
+      
+
+

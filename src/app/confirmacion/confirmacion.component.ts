@@ -14,12 +14,4 @@ export class ConfirmacionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onNoClick(): void {
-    this.dialogRef.close(false);
-  }
-
-  onYesClick(): void {
-    this.dialogRef.close(true);
-  }
-
 }

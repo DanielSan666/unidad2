@@ -1,0 +1,31 @@
+.example-container {
+    height: 100%;
+  }
+  
+  .mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 20%;
+  }
+  
+  td {
+    width: 10%;
+  }
+  th{
+    width: 10%;
+    background-color:rgba(32, 178, 214, 0.749);
+  }
+  

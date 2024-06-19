@@ -18,13 +18,19 @@ import {MatButtonModule} from '@angular/material/button';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
+import { ListUserComponent } from './component/users/list-user/list-user.component';
+import { UserFormComponent } from './user-form/user-form.component';
+import { ConfirmacionUserComponent } from './user-confirmacion/confirmacion-user/confirmacion-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListProductComponent,
     ProductFormComponent,
-    ConfirmacionComponent
+    ConfirmacionComponent,
+    ListUserComponent,
+    UserFormComponent,
+    ConfirmacionUserComponent
   ],
   imports: [
     BrowserModule,
