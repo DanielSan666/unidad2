@@ -8,7 +8,7 @@ import { User } from 'src/app/model/user';
 })
 export class UserService {
   url= "http://localhost:5000/api/user"
-  loginUrl = "http://localhost:5000/api/user/login";
+  
 
   constructor(private http:HttpClient) { 
 
@@ -29,7 +29,7 @@ export class UserService {
     return this.http.delete<User>(this.url+"/"+id)
   }
 
-  login(credentials: { username: string, password: string }): Observable<any> {
-    return this.http.post<any>(this.loginUrl, credentials);
+  login(credentials: { username: string; password: string }): Observable<any> {
+    return this.http.post<any>(`${this.url}/login`, credentials);
   }
 }
