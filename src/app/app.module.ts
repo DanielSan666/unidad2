@@ -21,6 +21,9 @@ import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { ListUserComponent } from './component/users/list-user/list-user.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { ConfirmacionUserComponent } from './user-confirmacion/confirmacion-user/confirmacion-user.component';
+import { LoginComponent } from './component/login/login/login.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { ConfirmacionUserComponent } from './user-confirmacion/confirmacion-user
     ConfirmacionComponent,
     ListUserComponent,
     UserFormComponent,
-    ConfirmacionUserComponent
+    ConfirmacionUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,10 @@ import { ConfirmacionUserComponent } from './user-confirmacion/confirmacion-user
     MatFormFieldModule, 
     MatDialogModule,
     MatIconModule, 
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatSnackBarModule
+    
     
   ],
   providers: [],

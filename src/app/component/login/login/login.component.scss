@@ -1,0 +1,85 @@
+/* Contenedor de login centrado en la página */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+}
+
+/* Tarjeta de login con sombra y bordes redondeados */
+.login-card {
+    width: 350px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Formulario de login con espacio entre elementos */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Botón de submit con estilo */
+.login-form button {
+    background-color: #6e8efb;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+    background-color: #5a7ee0;
+}
+
+/* Campos de entrada con bordes redondeados */
+.login-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Ancho completo para los campos de entrada */
+.full-width {
+    width: 100%;
+}
+
+/* Título del formulario */
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Enlace de registro con estilo */
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register-link a {
+    color: #6e8efb;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.register-link a:hover {
+    color: #5a7ee0;
+}
+
+.success-snackbar {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .error-snackbar {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
