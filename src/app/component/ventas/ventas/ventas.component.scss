@@ -1,0 +1,58 @@
+.example-container {
+  height: 100%;
+}
+
+.mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.content {
+  padding: 16px;
+  display: flex;
+  justify-content: center; 
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  gap: 20px; 
+  width: 100%;
+}
+
+.product-card, .order-card {
+  width: 100%; 
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 20%;
+}
+
+td {
+  width: 10%;
+}
+
+th {
+  width: 10%;
+  background-color: rgba(32, 178, 214, 0.749);
+}
+
+.content > mat-card {
+  width: 200px;
+}
+
+.red-button {
+  background-color: red;
+  color: white; /* Para que el texto sea visible sobre el fondo rojo */
+}
+
+.red-button2 {
+  background-color: red;
+  color: white; /* Para que el texto sea visible sobre el fondo rojo */
+}

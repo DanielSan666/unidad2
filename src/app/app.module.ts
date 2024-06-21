@@ -24,6 +24,7 @@ import { ConfirmacionUserComponent } from './user-confirmacion/confirmacion-user
 import { LoginComponent } from './component/login/login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { VentasComponent } from './component/ventas/ventas/ventas.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ListUserComponent,
     UserFormComponent,
     ConfirmacionUserComponent,
-    LoginComponent
+    LoginComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,
