@@ -11,18 +11,33 @@
 .content {
   padding: 16px;
   display: flex;
-  justify-content: center; 
+  justify-content: space-between;
 }
 
 .card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-  gap: 20px; 
+  display: flex;
   width: 100%;
+  justify-content: space-between;
+}
+
+.product-column {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Cuadrícula de 3 columnas */
+  gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.order-column {
+  flex: 1;
+  margin-left: 20px; /* Margen a la izquierda */
+  position: sticky; /* Mantener fijo durante el scroll */
+  top: 55px; /* Espacio desde la parte superior */
+  align-self: flex-start; /* Alinear al principio */
 }
 
 .product-card, .order-card {
-  width: 100%; 
+  width: 90%;
+  margin: 10px; /* Margen lateral entre tarjetas */
 }
 
 table {
@@ -31,7 +46,8 @@ table {
 
 .mat-form-field {
   font-size: 14px;
-  width: 20%;
+  width: 100%;
+  margin-top: 10px;
 }
 
 td {
@@ -43,16 +59,42 @@ th {
   background-color: rgba(32, 178, 214, 0.749);
 }
 
-.content > mat-card {
-  width: 200px;
+.red-button, .red-button2 {
+  background-color: red;
+  color: white;
+  display: flex;
+  width: 100%;
 }
 
-.red-button {
-  background-color: red;
-  color: white; /* Para que el texto sea visible sobre el fondo rojo */
+.red-button:hover, .red-button2:hover {
+  background-color: rgb(167, 2, 2); /* Cambiar a un rojo más oscuro al hacer hover */
 }
 
-.red-button2 {
-  background-color: red;
-  color: white; /* Para que el texto sea visible sobre el fondo rojo */
+.product-image {
+  width: 100%;
+  height: auto;
+}
+
+.product-info, .order-info {
+  margin-top: 5px; /* Reducido */
+}
+
+.product-card {
+  padding: 15px; /* Reducido */
+}
+
+.mat-card-title {
+  font-size: 19px; /* Reducido */
+}
+
+.mat-card-content {
+  padding: 10px; /* Reducido */
+}
+
+.product-item {
+  margin-bottom: 5px; /* Reducido */
+}
+
+.order-item {
+  margin-bottom: 10px; /* Reducido */
 }

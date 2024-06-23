@@ -25,6 +25,7 @@ import { LoginComponent } from './component/login/login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { VentasComponent } from './component/ventas/ventas/ventas.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,9 @@ import { VentasComponent } from './component/ventas/ventas/ventas.component';
     MatIconModule, 
     MatButtonModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule,
+    
     
     
   ],
