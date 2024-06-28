@@ -15,72 +15,55 @@
       <span>My Application</span>
     </mat-toolbar>
 
-    <div class="content">
-      <div class="card-container">
-        <!-- Product Column -->
-        <div class="product-column">
-          <ng-container *ngFor="let product of products">
-            <mat-card class="mat-elevation-z4 product-card">
-              <mat-card-header>
-                <mat-card-title>{{ product.name }}</mat-card-title>
-              </mat-card-header>
-              <mat-card-content>
-                <img src="https://imgs.search.brave.com/FIsIP11EN_A84QorKX-R6fubSAf1yDumzWSi5j3py5Q/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9kZWZp/bmljaW9uLmRlL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDA5LzA2/L3N1cGVybWVyY2Fk/by5qcGc" alt="Nombre del Producto" class="product-image">
-                <div class="product-info">
-                  <div class="product-item">
-                    <span class="product-label">Categoría:  </span>
-                    <span>{{ product.category }}</span>
-                  </div>
-                  <div class="product-item">
-                    <span class="product-label">Precio:  </span>
-                    <span>{{ product.price }}</span>
-                  </div>
-                </div>
-              </mat-card-content>
-              <mat-card-actions>
-                <button mat-stroked-button class="red-button2"><mat-icon style="margin-right: 5px;">shopping_cart</mat-icon> Añadir</button>
-              </mat-card-actions>
-            </mat-card>
-          </ng-container>
-        </div>
+    <div class="contenedor">
+  <div class="productos-grid">
+      <!-- Visualización de productos en grid -->
+      <div class="producto-card" *ngFor="let element of productos">
+          <div class="producto-info">
+            <img src="https://imgs.search.brave.com/FIsIP11EN_A84QorKX-R6fubSAf1yDumzWSi5j3py5Q/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9kZWZp/bmljaW9uLmRlL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDA5LzA2/L3N1cGVybWVyY2Fk/by5qcGc" alt="Nombre del Producto" class="product-image">
 
-        <!-- Order Column -->
-        <div class="order-column">
-          <mat-card class="mat-elevation-z4 order-card">
-            <mat-card-header>
-              <mat-card-title>Detalles de la Orden</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <div class="order-info">
-                <div class="order-item">
-                  <span class="order-label">Subtotal: </span>
-                </div>
-                <div class="order-item">
-                  <span class="order-label">IVA: </span>
-                </div>
-                <div class="order-item">
-                  <span class="order-label">Total: </span>
-                </div>
-                <div class="order-item">
-                  <span class="order-label">Método de pago: </span>
-                  <mat-form-field appearance="fill">
-                    <mat-label>Seleccionar método</mat-label>
-                    <mat-select>
-                      <mat-option value="credit">Tarjeta de Crédito</mat-option>
-                      <mat-option value="debit">Tarjeta de Débito</mat-option>
-                      <mat-option value="paypal">PayPal</mat-option>
-                      <mat-option value="paypal">Efectivo</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div>
-              </div>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-stroked-button class="red-button"><mat-icon style="margin-right: 5px;">payment</mat-icon> Pagar</button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
+              <h3>{{ element.name }}</h3>
+              <p>Precio: {{ element.price | currency:'USD' }}</p>
+              <p>Estado: {{ element.status }}</p>
+          </div>
+          <div class="producto-opciones">
+              <!-- Botón de Agregar al Carrito -->
+              <button mat-button color="primary" (click)="agregarAlCarrito(element)">
+                  <mat-icon>shopping_cart</mat-icon> Agregar al Carrito
+              </button>
+          </div>
       </div>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </div>
+
+  <!-- Apartado de orden de compra -->
+  <div class="orden-compra">
+      <h2>Orden de Compra</h2>
+      <div *ngIf="carrito.length > 0; else noItems" class="items-carrito">
+          <div *ngFor="let item of carrito; let i = index" class="item">
+              <div class="item-info">
+                  <h3>{{ item.name }}</h3>
+                  <p>Precio: {{ item.price | currency:'USD' }}</p>
+                  <p>Estado: {{ item.status }}</p>
+              </div>
+              <div class="item-opciones">
+                  <!-- Botón de Eliminar del Carrito -->
+                  <button mat-icon-button color="warn" (click)="eliminarDelCarrito(i)">
+                      <mat-icon>delete</mat-icon>
+                  </button>
+              </div>
+          </div>
+          <div class="total">Total: {{ calcularTotal() | currency:'USD' }}</div>
+          <div class="detalles">
+              <p>Items en el carrito: {{ carrito.length }}</p>
+              <p>Último producto agregado: {{ carrito[carrito.length - 1].name }}</p>
+          </div>
+          <button class="boton-pagar" (click)="pagar()">
+              <mat-icon>payments</mat-icon>
+              Comprar Ahora
+          </button>
+      </div>
+      <ng-template #noItems>
+          <p>No hay productos en el carrito.</p>
+      </ng-template>
+  </div>
+</div>
