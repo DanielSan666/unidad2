@@ -1,10 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product/product.service';
-import { MatDialog } from '@angular/material/dialog';
 import { DetailSaleService } from 'src/app/service/sale/detail-sale.service';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-ventas',

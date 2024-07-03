@@ -4,11 +4,12 @@ import { ListUserComponent } from './component/users/list-user/list-user.compone
 import { ListProductComponent } from './component/product/list-product/list-product.component';
 import { LoginComponent } from './component/login/login/login.component';
 import { VentasComponent } from './component/ventas/ventas/ventas.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: 'list-product', component: ListProductComponent },
-  { path: 'list-user', component: ListUserComponent },
-  { path: 'ventas', component: VentasComponent},
+  { path: 'list-product', component: ListProductComponent, canActivate: [AuthGuard] },
+  { path: 'list-user', component: ListUserComponent, canActivate: [AuthGuard]},
+  { path: 'ventas', component: VentasComponent, canActivate: [AuthGuard]},
   { path: '', component: LoginComponent}
 ];
 
